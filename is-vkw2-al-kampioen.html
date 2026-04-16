@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is VKW 2 al kampioen?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #001E79;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 1.5rem 2rem;
+      position: relative;
+    }
+
+    .logo-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #001158;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .logo-circle {
+      width: 38px; height: 38px;
+      background: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 11px; color: #001E79;
+      letter-spacing: -1px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .logo-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: #8FA8FF;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .question {
+      font-size: clamp(18px, 4vw, 36px);
+      font-weight: 700;
+      color: #8FA8FF;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .answer {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(110px, 30vw, 240px);
+      line-height: 0.9;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+    }
+
+    .divider {
+      width: 80px; height: 4px;
+      background: #8FA8FF;
+      margin: 2rem auto;
+      border-radius: 2px;
+    }
+
+    .volgende-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #8FA8FF;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .wedstrijd {
+      font-size: clamp(22px, 5vw, 40px);
+      font-weight: 900;
+      color: white;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .datum {
+      font-size: 16px;
+      color: #8FA8FF;
+      margin-top: 4px;
+      margin-bottom: 2rem;
+    }
+
+    .countdown {
+      display: flex;
+      gap: clamp(10px, 2vw, 20px);
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .cd-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cd-num {
+      background: white;
+      color: #001E79;
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(40px, 9vw, 80px);
+      line-height: 1;
+      padding: clamp(10px, 2vw, 18px) clamp(14px, 3vw, 30px);
+      border-radius: 10px;
+      min-width: clamp(64px, 14vw, 110px);
+      text-align: center;
+    }
+
+    .cd-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #8FA8FF;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    .locatie {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .locatie span {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.15);
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 480px) {
+      .countdown { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-bar">
+    <div class="logo-circle">VKW</div>
+    <div class="logo-text">VKW Voetbal</div>
+  </div>
+
+  <div class="question">Is VKW 2 al kampioen?</div>
+  <div class="answer">NEE</div>
+
+  <div class="divider"></div>
+
+  <div class="volgende-label">Volgende wedstrijd</div>
+  <div class="wedstrijd">VKW 2 — HOVC 2</div>
+  <div class="datum">Zondag 19 april &bull; 10:00</div>
+
+  <div class="countdown">
+    <div class="cd-block">
+      <div class="cd-num" id="cd-days">00</div>
+      <div class="cd-label">Dagen</div>
+    </div>
+    <div class="cd-block">
+      <div class="cd-num" id="cd-hours">00</div>
+      <div class="cd-label">Uren</div>
+    </div>
+    <div class="cd-block">
+      <div class="cd-num" id="cd-mins">00</div>
+      <div class="cd-label">Minuten</div>
+    </div>
+    <div class="cd-block">
+      <div class="cd-num" id="cd-secs">00</div>
+      <div class="cd-label">Seconden</div>
+    </div>
+  </div>
+
+  <div class="locatie">Locatie: <span>Sportpark de Perkenslag</span></div>
+
+  <a href="programma.html" style="display:inline-block; margin-top: 2rem; padding: 12px 28px; background: white; color: #001E79; font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 8px;">Bekijk het programma</a>
+
+  <footer>vkw2kampioen.nl</footer>
+
+  <script>
+    const target = new Date('2026-04-19T10:00:00');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const now = new Date();
+      const diff = target - now;
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+          document.getElementById(id).textContent = '00';
+        });
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent = pad(d);
+      document.getElementById('cd-hours').textContent = pad(h);
+      document.getElementById('cd-mins').textContent = pad(m);
+      document.getElementById('cd-secs').textContent = pad(s);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
+
+</body>
+</html>

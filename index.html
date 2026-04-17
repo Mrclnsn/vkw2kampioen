@@ -18,9 +18,8 @@
     }
 
     body.nee { background: #001E79; }
-    body.ja  { background: #8B1A1A; }
+    body.ja  { background: #001E79; }
 
-    /* ── NAV ── */
     .logo-bar {
       width: 100%;
       padding: 12px 24px;
@@ -31,7 +30,7 @@
       transition: background 0.6s;
     }
     body.nee .logo-bar { background: #001158; }
-    body.ja  .logo-bar { background: #5a1010; }
+    body.ja  .logo-bar { background: #001158; }
 
     .logo-text {
       font-size: 14px;
@@ -42,7 +41,6 @@
     body.nee .logo-text { color: #8FA8FF; }
     body.ja  .logo-text { color: #FFD700; }
 
-    /* ── MAIN ── */
     .main-content {
       display: flex;
       flex-direction: column;
@@ -51,7 +49,6 @@
       padding: 2rem 1.5rem 3rem;
     }
 
-    /* ── NEE SECTION ── */
     .nee-section { display: flex; flex-direction: column; align-items: center; }
     .ja-section  { display: none;  flex-direction: column; align-items: center; }
 
@@ -79,10 +76,8 @@
 
     body.ja .answer {
       color: #FFD700;
-      text-shadow: 0 0 60px rgba(255,215,0,0.4);
     }
 
-    /* JA extra */
     .ja-sub {
       font-size: clamp(18px, 4vw, 28px);
       font-weight: 900;
@@ -100,7 +95,6 @@
       opacity: 0.8;
     }
 
-    /* ── DIVIDER ── */
     .divider {
       width: 80px; height: 4px;
       margin: 2rem auto;
@@ -109,7 +103,6 @@
     body.nee .divider { background: #8FA8FF; }
     body.ja  .divider { background: #FFD700; }
 
-    /* ── COUNTDOWN ── */
     .volgende-label {
       font-size: 12px;
       text-transform: uppercase;
@@ -165,7 +158,6 @@
     }
     .locatie span { color: rgba(255,255,255,0.75); }
 
-    /* ── STAND ── */
     .stand-wrapper {
       margin-top: 2.5rem;
       width: 100%;
@@ -214,7 +206,6 @@
     .pos { color: rgba(255,255,255,0.4); font-size: 12px; margin-right: 8px; }
     .highlight .pos { color: inherit; }
 
-    /* ── KNOPPEN ── */
     .btn-row {
       display: flex;
       flex-wrap: wrap;
@@ -237,7 +228,6 @@
       border: none;
       cursor: pointer;
     }
-    body.ja .btn-white { color: #8B1A1A; }
 
     .btn-whatsapp {
       display: inline-flex;
@@ -349,7 +339,7 @@
     <!-- ══ LIVE STAND ══ -->
     <!-- STAND: pas de cijfers hieronder aan om de stand bij te houden -->
     <div class="stand-wrapper">
-      <div class="stand-title">Stand — 1e klasse A</div>
+      <div class="stand-title">Stand — 4e klasse C (speelronde 19)</div>
       <table class="stand-table">
         <thead>
           <tr>
@@ -390,6 +380,7 @@
     <!-- ══ KNOPPEN ══ -->
     <div class="btn-row">
       <a href="programma.html" class="btn-white">📅 Programma</a>
+      <a href="wedstrijd.html" class="btn-white">⚽ Live wedstrijd</a>
       <a id="btn-whatsapp" href="#" class="btn-whatsapp">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Deel via WhatsApp
@@ -424,31 +415,26 @@
       setTimeout(shootConfetti, 400);
     }
 
-    // ── CONFETTI ──
     function shootConfetti() {
-      const colors = ['#FFD700','#FFA500','#ffffff','#001E79','#8B1A1A'];
+      const colors = ['#FFD700','#FFA500','#ffffff','#8FA8FF','#001E79'];
       confetti({ particleCount: 200, spread: 100, origin: { y: 0.4 }, colors });
       setTimeout(() => confetti({ particleCount: 150, spread: 120, origin: { y: 0.5 }, colors }), 600);
       setTimeout(() => confetti({ particleCount: 100, spread: 80,  origin: { y: 0.3 }, colors }), 1200);
     }
 
-    // ── WHATSAPP LINK ──
     const waText = isKampioen
       ? 'VKW 2 IS KAMPIOEN! 🏆 Bekijk het hier: ' + window.location.origin
       : 'Is VKW 2 al kampioen? Check het hier: ' + window.location.origin;
     document.getElementById('btn-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(waText);
 
-    // ── KOPIEER LINK ──
     function copyLink() {
-      const url = window.location.origin;
-      navigator.clipboard.writeText(url).then(() => {
+      navigator.clipboard.writeText(window.location.origin).then(() => {
         const t = document.getElementById('copy-toast');
         t.classList.add('show');
         setTimeout(() => t.classList.remove('show'), 2500);
       });
     }
 
-    // ── COUNTDOWN ──
     const target = new Date('2026-04-19T10:00:00');
     function pad(n) { return String(n).padStart(2, '0'); }
     function tick() {
